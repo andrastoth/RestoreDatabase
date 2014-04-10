@@ -1,15 +1,15 @@
 USE [master]
 GO
 
- Object  StoredProcedure [dbo].[RestoreDatabase]    Script Date 2014.04.09. 183958 
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
+
 -- =============================================
--- Author		TÛth Andr·s
+-- Author		T√≥th Andr√°s
 -- Create date 2014-03-31
 -- Description	Restore Database
 -- USAGE Restore or Create exec dbo.RestoreDatabase 'EAdventureWorks2012.bak' ,'AdventureWorks2012'
@@ -22,10 +22,11 @@ CREATE PROCEDURE [dbo].[RestoreDatabase]
 	,@cdb NVARCHAR(100) = @db
 AS
 BEGIN
-	DECLARE @SQLCommand NVARCHAR(max) = 
+	DECLARE @SQLCommand NVARCHAR(max);
+	SET @SQLCommand = 
 'USE [master];
 IF EXISTS (
-		SELECT 
+		SELECT *
 		FROM sys.databases
 		WHERE NAME = ''@cdb''
 		)
@@ -98,9 +99,8 @@ SET MULTI_USER;
 	SET @SQLCommand = REPLACE(@SQLCommand, '@cdb', @cdb);
 	SET @SQLCommand = REPLACE(@SQLCommand, '@path', @path);
 
-	EXEC (@SQLCommand);
+	EXEC(@SQLCommand);
 END
+
+
 GO
-
-
-
