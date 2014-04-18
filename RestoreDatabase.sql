@@ -12,8 +12,8 @@ GO
 -- Author		Tóth András
 -- Create date 2014-03-31
 -- Description	Restore Database
--- USAGE Restore or Create exec dbo.RestoreDatabase 'EAdventureWorks2012.bak' ,'AdventureWorks2012'
--- USAGE Copy exec dbo.RestoreDatabase 'EAdventureWorks2012.bak', 'AdventureWorks2012','AdventureWorks2012Copy'
+-- USAGE Restore or Create exec dbo.RestoreDatabase 'E:\AdventureWorks2012.bak' ,'AdventureWorks2012'
+-- USAGE Copy exec dbo.RestoreDatabase 'E:\AdventureWorks2012.bak', 'AdventureWorks2012','AdventureWorks2012Copy'
 -- =============================================
 CREATE PROCEDURE [dbo].[RestoreDatabase]
 	-- Add the parameters for the stored procedure here
